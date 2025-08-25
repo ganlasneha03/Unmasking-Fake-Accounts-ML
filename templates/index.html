@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Instagram Scam Account Detector</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            padding: 30px;
+        }
+        .container {
+            background-color: #ffffff10;
+            padding: 25px;
+            border-radius: 15px;
+            max-width: 650px;
+            margin: auto;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        label {
+            font-weight: 500;
+        }
+        .form-control {
+            margin-bottom: 15px;
+        }
+        .btn-custom {
+            background-color: #fff;
+            color: #000;
+            border: none;
+        }
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Instagram Scam Account Detector</h1>
+        <form method="POST" action="/">
+            <label>Username Length:</label>
+            <input type="number" class="form-control" name="username_length" required>
+
+            <label>Username Has Number? (0 = No, 1 = Yes)</label>
+            <input type="number" class="form-control" name="username_has_number" min="0" max="1" required>
+
+            <label>Full Name Has Number? (0 = No, 1 = Yes)</label>
+            <input type="number" class="form-control" name="full_name_has_number" min="0" max="1" required>
+
+            <label>Full Name Length:</label>
+            <input type="number" class="form-control" name="full_name_length" required>
+
+            <label>Is Private? (0 = No, 1 = Yes)</label>
+            <input type="number" class="form-control" name="is_private" min="0" max="1" required>
+
+            <label>Is Joined Recently? (0 = No, 1 = Yes)</label>
+            <input type="number" class="form-control" name="is_joined_recently" min="0" max="1" required>
+
+            <label>Has Channel? (0 = No, 1 = Yes)</label>
+            <input type="number" class="form-control" name="has_channel" min="0" max="1" required>
+
+            <label>Is Business Account? (0 = No, 1 = Yes)</label>
+            <input type="number" class="form-control" name="is_business_account" min="0" max="1" required>
+
+            <label>Has Guides? (0 = No, 1 = Yes)</label>
+            <input type="number" class="form-control" name="has_guides" min="0" max="1" required>
+
+            <label>Has External URL? (0 = No, 1 = Yes)</label>
+            <input type="number" class="form-control" name="has_external_url" min="0" max="1" required>
+
+            <label>Number of Followers:</label>
+            <input type="number" class="form-control" name="edge_followed_by" required>
+
+            <label>Number of Followings:</label>
+            <input type="number" class="form-control" name="edge_follow" required>
+
+            <button type="submit" class="btn btn-custom w-100">Check Account</button>
+        </form>
+
+        {% if result %}
+        <div class="result">{{ result }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
